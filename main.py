@@ -4,9 +4,9 @@ from utils.colors_generator import generate_color_scheme
 from utils.img_tools import hexify
 from colr import color
 
-CONTRAST = 1.15
+CONTRAST = 1.5
 FORE = 'ffffff'
-COLOR_SCHEME_LENGTH = 6
+COLOR_SCHEME_LENGTH = 10
 
 
 def main(path):
@@ -32,5 +32,5 @@ if __name__ == '__main__': # TODO: Enter file in CLI command (not with input() f
     #     print('\n' + path)
     #     main(path)
 
-    path = input('img path: ')
-    main(path)
+    filename = input('img name: ')
+    main('imgtest/' + filename + '.jpg')

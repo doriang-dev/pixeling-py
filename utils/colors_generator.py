@@ -3,7 +3,8 @@ from utils.img_tools import open_image, is_bw
 
 
 def generate_color_scheme(path, nb_colors, contrasting):
-    reducer = 0.5 + (nb_colors / 100)
+    reducer = 0.5 + (nb_colors / 50)
+    # reducer = 1
     img = open_image(path, reducer)
 
     size, height = img.size
@@ -35,4 +36,6 @@ def generate_color_scheme(path, nb_colors, contrasting):
 
     print('size: ' + str(size) + 'px')
     print('Contrast: ' + str(contrasting))
+    print('Length: ' + str(nb_colors))
+    print('Reducer: ' + str(reducer))
     return pixels[:nb_colors]
