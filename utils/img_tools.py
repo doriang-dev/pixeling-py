@@ -1,8 +1,8 @@
 from PIL import Image
 
 
-def hexify(rgb_color):
-    hex_color = '#'
+def hexify(rgb_color, d=True):
+    hex_color = '#' if d else ''
     for color in rgb_color:
         hex_component = hex(color)[2:]
 
@@ -20,13 +20,3 @@ def is_bw(rgb):
         return False
     else:
         return True
-
-
-def open_image(path, reducer):
-    img = Image.open(path)
-
-    width, height = img.size
-
-    img.thumbnail((width * reducer, height * reducer))
-
-    return img

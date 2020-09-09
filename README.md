@@ -1,4 +1,4 @@
-# Pyxeling
+# Pyxeling@1.1.0
 
 Pyxeling is a color scheme generator based on Python and PIL library.
  

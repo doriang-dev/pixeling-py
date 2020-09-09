@@ -1,36 +1,15 @@
-from time import time
-
-from utils.colors_generator import generate_color_scheme
 from utils.img_tools import hexify
-from colr import color
+from utils.Generator import ColorGenerator
+from colr import color as term_color
 
-CONTRAST = 1.5
-FORE = 'ffffff'
-COLOR_SCHEME_LENGTH = 10
+colors = ColorGenerator()
+colors.open('imgtest/lac.jpg')
+scheme = colors.scheme(length=6)
 
+list(map(hexify, scheme))
 
-def main(path):
-    ti = time()
+for color in scheme:
+    print(term_color(color, fore='fff', back=color))
 
-    color_scheme = generate_color_scheme(path, COLOR_SCHEME_LENGTH, CONTRAST)
+print(colors.__getcontrast__())
 
-    for color_pixel in color_scheme:
-        hex_color = hexify(color_pixel)
-
-        print(color(hex_color, fore=FORE, back=color_pixel))
-
-    tf = time()
-
-    print('temps: ' + str(tf - ti))
-    print('longueur: ' + str(len(color_scheme)))
-
-
-if __name__ == '__main__': # TODO: Enter file in CLI command (not with input() function)
-    # FILES = ('desert', 'index', 'lac', 'test', 'test2')
-    # for filename in FILES:
-    #     path = 'imgtest/' + filename + '.jpg'
-    #     print('\n' + path)
-    #     main(path)
-
-    filename = input('img name: ')
-    main('imgtest/' + filename + '.jpg')
